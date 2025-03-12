@@ -1,0 +1,727 @@
+/* Styles globaux */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6759CD, #342D67);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barre de navigation */
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo, .search-bar {
+    display: flex;
+    align-items: center;
+    padding-left: 5rem;
+}
+
+/* Centrer la barre de recherche légèrement à droite */
+.group {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 50%;  /* Déplace un peu plus à droite */
+    transform: translateX(-50%);
+    width: 200px;
+    top: 1rem;
+}
+/* Style de l'input */
+.group .input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    width: 200px;
+    left: 30%;
+    padding-left: 20%;
+}
+.group .icon {
+    width: 20px;
+    height: 20px;
+    fill: #555; /* Change la couleur de l'icône */
+    margin-right: 10px; /* Espacement entre l'icône et l'input */
+}
+
+
+.input {
+  width: 100%;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: 0.3s ease;
+}
+
+.input::placeholder {
+  color: #9e9ea7;
+}
+
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: rgba(234, 226, 183, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 226 183 / 10%);
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 10px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+/* Profil agrandi */
+
+.profile {
+    padding-top: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.profile-pic {
+    display: block !important; /* S'assurer que l'image est visible */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Section de bienvenue */
+.welcome {
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 45px;
+}
+
+.welcome span {
+    color: #D28C64;
+}
+
+.welcome p {
+    font-size: 16px;
+}
+
+/* Icône du menu */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 5px;
+   
+}
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px; /* Ajuste la largeur */
+    height: 100vh; /* Pleine hauteur */
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%); /* Cachée par défaut */
+    transition: transform 0.3s ease-in-out;
+}
+.sidebar {
+    position: fixed; /* ou absolute si nécessaire */
+    top: 0;
+    left: 0;
+    width: 250px; /* Ajuste selon ta sidebar */
+    height: 100vh; /* Pour qu'elle prenne toute la hauteur */
+    background-color: #f5f5f5; /* Couleur de fond */
+    z-index: 10; /* Assure qu'elle reste en dessous */
+}
+
+.departments-bar {
+    position: relative;
+    margin-top: 100px; /* Ajuste pour descendre la barre */
+    z-index: 5; /* Doit être inférieur à celui de la sidebar */
+}
+
+#sidebar.active {
+    transform: translateX(0); /* Affichée quand active */
+}
+
+/* Styles de la sidebar */
+.sidebar {
+    width: 150px; /* Ajuste la largeur selon ton besoin */
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    overflow-y: auto; /* Active le défilement vertical si nécessaire */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espace bien les éléments */
+    background: white;
+    position: fixed; /* Fixe la barre à gauche */
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Réduit l’espace intérieur */
+}
+/* Ajuster l’espacement des liens du menu */
+.sidebar-menu {
+    flex-grow: 1; /* Permet au menu de prendre tout l’espace dispo */
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px; /* Réduit l’espace entre les éléments */
+}
+
+/* Le footer reste en bas mais peut défiler si nécessaire */
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Alignement à gauche */
+    gap: 10px; /* Espace entre les éléments */
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #ddd; /* Séparateur propre */
+}
+.sidebar-footer a {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacement entre l’icône et le texte */
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.sidebar {
+    min-height: 100vh; /* Utilise toute la hauteur de l'écran */
+    overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
+}
+
+
+.sidebar-menu img {
+    width: 20px; /* Taille de l'icône */
+    height: 20px;
+    margin-right: 10px; /* Espacement entre l'image et le texte */
+    vertical-align: middle;
+}
+
+/* Masquer la sidebar par défaut */
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* Styles du bouton menu */
+.menu-icon {
+    font-size: 25px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+    font-size: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Menu de la sidebar */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar-menu li {
+    padding: 10px 0;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Icônes */
+.sidebar-menu i,
+.sidebar-footer {
+    position: absolute;
+    bottom:0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    bottom: -150px;
+}
+
+.sidebar-footer a {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espace entre l'icône et le texte */
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.sidebar-footer a img {
+    width: 20px; /* Taille des icônes */
+    height: 20px;
+    margin-left: 10px;
+}
+
+.sidebar-footer a.logout {
+    color: red; /* Se déconnecter en rouge */
+}
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: black; /* Couleur normale */
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.sidebar-menu li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.sidebar-menu li a:hover {
+    color: #1A0495; /* Bleu au survol */
+}
+
+
+.formation{
+    background-color: white;
+    
+}
+/* Section cours récents */
+.recent-courses h2 {
+    color: black;
+    padding: 30px 20px 0;
+}
+
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Section cours récents */
+.recent-courses h2 {
+    color: black;
+    padding: 30px 20px 0;
+}
+
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Style des cartes de cours */
+.course-card {
+    position: relative; /* Permet de positionner le badge correctement */
+    display: inline-block;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px; /* Ajuste la largeur */
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.courses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.see-all {
+    font-size: 16px;
+    color: #1A0495;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease-in-out;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.see-all::after {
+    
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.see-all:hover {
+    color: #000;
+}
+
+.see-all:hover::after {
+    transform: translateX(5px);
+}
+
+
+.see-all:hover {
+    color: black;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.department {
+    display: inline-block;
+    background: #E2D5FF;
+    color: #702dff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.course-card h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.course-card p {
+    font-size: 12px;
+    color: #444;
+    margin: 0;
+}
+/* Pied de page */
+/
+/* Section contact */
+.contact {
+
+    color: #ffffff;
+    padding: 2rem;
+}
+ul {
+    list-style: none;
+}
+  
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+  .example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+  }
+
+  .example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+  }
+
+  .example-2 .icon-content a:hover {
+    color: white;
+  }
+
+  .example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+  }
+  .example-2 .icon-content a:hover .filled {
+    height: 100%;
+  }
+  
+  .example-2 .icon-content a[data-social="linkedin"] .filled,
+  .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0274b3;
+  }
+  
+  .example-2 .icon-content a[data-social="facebook"] .filled,
+  .example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
+    background-color: #3b5998;
+  }
+  .example-2 .icon-content a[data-social="instagram"] .filled,
+  .example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(
+      45deg,
+      #405de6,
+      #5b51db,
+      #b33ab4,
+      #c135b4,
+      #e1306c,
+      #fd1f1f
+    );
+  }
+  .example-2 .icon-content a[data-social="youtube"] .filled,
+  .example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+    background-color: #ff0000;
+  }  
+.couleur{
+    color:  #D28C64;
+}
+
+
+.container-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.partie-d{
+    flex: 0;
+    min-width: 300px;
+    margin: 1rem;
+}
+
+.partie-g{
+    flex: 1;
+    min-width: 300px;
+    margin: 1rem;
+    padding-right: 20%;
+}
+
+.gauche {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.place-g h1 {
+    font-size: 2rem;
+}
+
+.place-g p {
+    font-size: 1rem;
+}
+
+.place-d p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.down-logo {
+    width: 70px;
+    height: 70px;
+}
+
+.photo-reseau {
+    width: 100%;
+    max-width: 200px;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+}
+.formation{
+    background-color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+  
+
+    header img{
+        display: none;
+    }
+
+    .logo{ 
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin-top: 10px;
+        margin-right: 25%;
+    }
+    .welcome h1{
+        padding-left:20px ;
+        padding-right:20px ;
+        
+    }
+
+    .search-bar {
+        max-width: 300px;
+        width: 70%;
+    }
+
+    .course-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-card {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.enlarged-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) { 
+    nav {
+        flex-direction: row; /* Garde la navbar en ligne */
+        justify-content: space-between; /* Sépare les éléments */
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: none; /* Cache le menu si besoin */
+    }
+
+    .profile-pic {
+        width: 50px; /* Augmente la taille pour mobile */
+        height: 50px;
+    }
+}
+.profile-pic {
+    width: 40px; /* Taille de base */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    display: none; /* Cachée par défaut */
+}
+
+/* Pour les écrans de 768px et moins (mobile & tablette) */
+@media (max-width: 768px) {
+    .profile-pic {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
