@@ -221,11 +221,11 @@ input:hover {
 }
 
 
-.sidebar-menu img {
-    width: 20px; /* Taille de l'icône */
-    height: 20px;
-    margin-right: 10px; /* Espacement entre l'image et le texte */
-    vertical-align: middle;
+.sidebar-menu img,
+.sidebar-menu i {
+    width: 25px; /* Taille uniforme */
+    height: 25px;
+    display: inline-block; /* Toujours affiché */
 }
 
 /* Masquer la sidebar par défaut */
@@ -271,30 +271,25 @@ input:hover {
 
 
 
-/* Icônes */
-.sidebar-menu i,
+/* Le footer reste en bas mais peut défiler si nécessaire */
 .sidebar-footer {
-    position: absolute;
-    bottom:0px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    bottom: -150px;
+    align-items: start; /* Alignement à gauche */
+    gap: 5px; /* Espace entre les éléments */
+    margin-top: 0px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd; /* Séparateur propre */
 }
-
 .sidebar-footer a {
     display: flex;
     align-items: center;
-    gap: 8px; /* Espace entre l'icône et le texte */
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
+    gap: 8px; /* Espacement entre l’icône et le texte */
     text-decoration: none;
-    width: 100%;
-    padding: 10px;
+    font-weight: bold;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    color: #000;
 }
 
 .sidebar-footer a img {
@@ -306,6 +301,14 @@ input:hover {
 .sidebar-footer a.logout {
     color: red; /* Se déconnecter en rouge */
 }
+.sidebar-footer img,
+.sidebar-footer i {
+    width: 25px; /* Taille uniforme */
+    height: 25px;
+    display: inline-block; /* Toujours affiché */
+}
+
+
 .sidebar-menu li a {
     display: flex;
     align-items: center;
@@ -725,3 +728,4 @@ footer {
         transform: translateY(-50%);
     }
 }
+
